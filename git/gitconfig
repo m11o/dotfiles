@@ -1,0 +1,15 @@
+[user]
+	name = m11o
+	email = masahito.osako@hey.com
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+	editor = nvim
+[color]
+	ui = auto
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
