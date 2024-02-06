@@ -169,22 +169,9 @@ fbr() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# svpコマンド用環境変数
-export OPENAI_API_KEY="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"
-export SVP_GITHUB_TOKEN="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"
-export VOCABULARY_REPOSITORY_ID="R_kgDOKBxjTQ"
-export VOCABULARY_PROJECT_ID="PVT_kwHOAp0NbM4ATfqt"
-export VOCABULARY_STATUS_FIELD_ID="PVTSSF_lAHOAp0NbM4ATfqtzgMdB1I"
-
 alias svp="/Users/m11o/svp/target/release/svp"
 
-# alias for dairyコマンド
-export SILT_PROJECT_ROOT_PATH="/Users/m11o/silt"
 alias d="/Users/m11o/silt/target/release/dairy"
-
-# Set AWS_PROFILE
-# storesの認証情報をdefaultととして設定
-export AWS_PROFILE=default
 
 # direnv hook setup
 eval "$(direnv hook zsh)"
