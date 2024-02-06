@@ -88,6 +88,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -166,3 +168,31 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+
+# svpコマンド用環境変数
+export OPENAI_API_KEY="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"
+export SVP_GITHUB_TOKEN="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"
+export VOCABULARY_REPOSITORY_ID="R_kgDOKBxjTQ"
+export VOCABULARY_PROJECT_ID="PVT_kwHOAp0NbM4ATfqt"
+export VOCABULARY_STATUS_FIELD_ID="PVTSSF_lAHOAp0NbM4ATfqtzgMdB1I"
+
+alias svp="/Users/m11o/svp/target/release/svp"
+
+# alias for dairyコマンド
+export SILT_PROJECT_ROOT_PATH="/Users/m11o/silt"
+alias d="/Users/m11o/silt/target/release/dairy"
+
+# Set AWS_PROFILE
+# storesの認証情報をdefaultととして設定
+export AWS_PROFILE=default
+
+# direnv hook setup
+eval "$(direnv hook zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/m11o/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/m11o/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias dab='git branch | rg -v "^[\s\*]{2}(develop|master|main)$" | xargs git branch -d'
