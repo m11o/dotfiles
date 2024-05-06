@@ -50,5 +50,3 @@ nnoremap <Space>Q :q!<CR>
 nnoremap gl gt
 "" タブ移動 左
 nnoremap gh gT
-"" next splitter
-nnoremap gs :action NextSplitter<CR>
