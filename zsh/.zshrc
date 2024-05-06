@@ -175,6 +175,7 @@ alias d="/Users/m11o/silt/target/release/dairy"
 
 # direnv hook setup
 eval "$(direnv hook zsh)"
+plugins=(... direnv)
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/m11o/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/path.zsh.inc'; fi
@@ -182,4 +183,9 @@ if [ -f '/Users/m11o/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/m11o/googl
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/m11o/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/completion.zsh.inc'; fi
 
-alias dab='git branch | rg -v "^[\s\*]{2}(develop|master|main)$" | xargs git branch -d'
+alias dab='git branch --format="%(refname:short)" | rg -v "^(develop|master|main)$" | xargs git branch -d'
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/m11o/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
