@@ -8,6 +8,7 @@ set scrolloff=5
 
 " Do incremental searching.
 set incsearch
+set NERDTree
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -22,13 +23,6 @@ vnoremap J 10j
 vnoremap K 10k
 vnoremap H ^
 vnoremap L $
-
-"" indent
-nnoremap > >>
-nnoremap < <<
-
-vnoremap > >>
-vnoremap < <<
 
 "" 検索系
 nnoremap n nzz
@@ -72,6 +66,9 @@ nnoremap tl :action GotoDeclaration<CR>
 nnoremap tL :action GotoImplementation<CR>
 nnoremap th :action Back<CR>
 
+"" NERDTree
+nnoremap ga :NERDTreeFocus<CR>
+
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
 "map \r <Action>(ReformatCode)
@@ -82,5 +79,26 @@ nnoremap th :action Back<CR>
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
+"" Map Bookmark
+map gb <Action>(ToggleBookmark)
+
 
 " Find more examples here: https://jb.gg/share-ideavimrc
+
+"" Search codes
+nnoremap <Space>r :action Replace<CR>
+vnoremap <Space>r :action Replace<CR>
+
+nnoremap <Space>R :action ReplaceInPath<CR>
+vnoremap <Space>R :action ReplaceInPath<CR>
+
+nnoremap <Space>f :action Find<CR>
+vnoremap <Space>f :action Find<CR>
+
+nnoremap <Space>F :action FindInPath<CR>
+vnoremap <Space>F :action FindInPath<CR>
+
+"" Jump codes
+nnoremap <Space>g :action GotoDeclaration<CR>
+nnoremap <Space>G :action GotoImplementation<CR>
+nnoremap <Space>b :action Back<CR>
