@@ -177,15 +177,34 @@ alias d="/Users/m11o/silt/target/release/dairy"
 eval "$(direnv hook zsh)"
 plugins=(... direnv)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/m11o/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/m11o/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/completion.zsh.inc'; fi
-
 alias dab='git branch --format="%(refname:short)" | rg -v "^(develop|master|main)$" | xargs git branch -d'
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/m11o/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/m11o/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/m11o/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/m11o/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias gcloud="/Users/m11o/google-cloud-sdk/bin/gcloud"
+alias kubectl="/opt/homebrew/Cellar/kubernetes-cli/1.30.2/bin/kubectl" # homebrewのkubectlを使用。defaultはrancher-desktopだった
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
+
+# bun completions
+[ -s "/Users/m11o/.bun/_bun" ] && source "/Users/m11o/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

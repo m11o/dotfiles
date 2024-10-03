@@ -36,7 +36,7 @@ nnoremap ga :NERDTreeFocus<CR>
 "map \b <Action>(ToggleLineBreakpoint)
 
 "" Map Bookmark
-map gb <Action>(ToggleBookmark)
+map <Space>b <Action>(ToggleBookmark)
 
 
 " Find more examples here: https://jb.gg/share-ideavimrc
@@ -55,6 +55,6 @@ nnoremap <Space>F :action FindInPath<CR>
 vnoremap <Space>F :action FindInPath<CR>
 
 "" Jump codes
-nnoremap <Space>g :action GotoDeclaration<CR>
-nnoremap <Space>G :action GotoImplementation<CR>
-nnoremap <Space>b :action Back<CR>
+nnoremap gn :action GotoDeclaration<CR>
+nnoremap gN :action GotoImplementation<CR>
+nnoremap gb :action Back<CR>
